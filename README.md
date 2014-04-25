@@ -13,7 +13,7 @@ All code in the codebase should look like a single person typed it, no matter ho
 
 ## Guides by language
 
-[CoffeeScript](coffeescript.md)
-[HTML](html.md)
-[JavaScript](javascript.md)
-[Sass](sass.md)
+- [CoffeeScript](coffeescript.md)
+- [HTML](html.md)
+- [JavaScript](javascript.md)
+- [Sass](sass.md)

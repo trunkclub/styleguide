@@ -1,5 +1,7 @@
 # Trunk Club CoffeeScript Style Guide
 
+When writing not JavaScript.
+
 - use parens when requiring CommonJS modules, e.g. `require('lib/view-helper')`
 - use single quotes for strings unless you're interpolating
 - use `$` in identifier names when assigning a jQuery or Zepto wrapped element, e.g. `@$huzzah = @$('[data-spy="huzzah"]')`

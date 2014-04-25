@@ -1,5 +1,7 @@
 # Trunk Club Sass Style Guide
 
+While working on style rules.
+
 - use [SUIT code style](https://github.com/suitcss/suit/blob/master/doc/code-style.md#4-css) and refactor from `application.scss` into [Static](https://github.com/trunkclub/static) when it makes sense (i.e. almost always)
 - use `rem` for defining relative sizes, otherwise use `px`
 - style declarations should end with a semicolon, e.g. `opacity: 0;`

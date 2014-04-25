@@ -1,5 +1,7 @@
 # Trunk Club HTML Style Guide
 
+When working with markup in templates.
+
 - use semantic markup, e.g. use `button` and not `href` for close links; see also [content categories](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories)
 - use `id` only for the dom-insertion of content containers (i.e. layout areas, regions), named anchors and form controls
 - use [SUIT-style naming](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#js-someName) for script hooks along with an indication of the element type, e.g. `class="js-widgetBtn"`
