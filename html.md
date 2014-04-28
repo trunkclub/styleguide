@@ -10,5 +10,4 @@ When working with markup in templates.
 - skip the `/` on [void elements](http://www.456bereastreet.com/archive/201005/void_empty_elements_and_self-closing_start_tags_in_html/), e.g. `<hr>` and not `<hr />` ([further reading](http://www.colorglare.com/2014/02/03/to-close-or-not-to-close.html))
 - avoid use of the `<br>` tag; consider possible use of other semantic markup instead
 - do not use classless `span` or `div` tags wrapped around content
-- prefer markup duplication in templates to hard-to-comprehend branch logic
 - add a `type="button"` to all button elements other than `type="submit"` or `type="reset"`
