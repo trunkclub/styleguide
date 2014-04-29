@@ -11,3 +11,4 @@ When working with markup in templates.
 - avoid use of the `<br>` tag; consider possible use of other semantic markup instead
 - do not use classless `span` or `div` tags wrapped around content
 - add a `type="button"` to all button elements other than `type="submit"` or `type="reset"`
+- use the [`alt` text decision tree](dev.w3.org/html5/alt-techniques/#tree) when adding `img` elements
