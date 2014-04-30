@@ -1,4 +1,4 @@
-Trunk Club Coding Style Guide
+Trunk Club Code Style Guide
 ==========
 
 ## The Golden Rule
