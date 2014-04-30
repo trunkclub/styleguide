@@ -11,6 +11,15 @@ All code in the codebase should look like a single person typed it, no matter ho
 - don't leave `TODO`s, `FIXME`s or `BUG`s in the code, but if you do use `TODO`, `FIXME` or `BUG` in your comment
 - comments left in the code should be timeless, e.g. always applicable until they're removed
 
+<a name="whitespace"></a>
+## Whitespace
+
+* Use whitespace to improve readability.
+* Use 2 spaces for indentation.
+* Don't use more than one blank line as a separator.
+* Strip all end-of-line whitespace.
+* Ensure file ends with one line-break.
+
 ## Guides by language
 
 - [CoffeeScript](coffeescript.md)
