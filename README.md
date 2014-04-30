@@ -9,6 +9,9 @@ Trunk Club Code Style Guide
 4. [Guides by Language](#guides-by-language)
 5. [CSS](#css)
   * [Whitespace](#css-whitespace)
+  * [Comments](#css-comments)
+  * [Format](#css-format)
+  * [Practical Example](#css-example)
 7. [License](#license)
 
 <a name="golden-rule"></a>
@@ -53,7 +56,7 @@ All code in the codebase should look like a single person typed it, no matter ho
 * Ensure file ends with one line-break.
 
 <a name="css-comments"></a>
-### 5.1. CSS Comments
+### 5.2. CSS Comments
 
 Well commented code is extremely important. Take time to describe components,
 how they work, their limitations, and the way they are constructed. Don't leave
@@ -102,7 +105,7 @@ Example:
 ```
 
 <a name="css-format"></a>
-### 5.2. CSS Format
+### 5.3. CSS Format
 
 The chosen code format ensures that code is: easy to read; easy to clearly
 comment; minimizes the chance of accidentally introducing errors; and results
@@ -190,8 +193,8 @@ readability and produce more useful diffs.
 }
 ```
 
-<a name="example"></a>
-### 5.3. CSS Practical example
+<a name="css-example"></a>
+### 5.4. CSS Practical example
 
 An example of various conventions.
 
