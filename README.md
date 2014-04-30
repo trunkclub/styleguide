@@ -1,11 +1,22 @@
 Trunk Club Coding Style Guide
 ==========
 
+## Table of Contents
+
+1. [The Golden Rule](#golden-rule)
+2. [In General](#in-general)
+3. [Whitespace](#whitespace)
+4. [Guides by Language](#guides-by-language)
+5. [License](#license)
+
+
+<a name="golden-rule"></a>
 ## The Golden Rule
 
 All code in the codebase should look like a single person typed it, no matter how many people contribute.
 
-## In general
+<a name="in-general"></a>
+## In General
 
 - do not commit commented-out code to master
 - don't leave `TODO`s, `FIXME`s or `BUG`s in the code, but if you do use `TODO`, `FIXME` or `BUG` in your comment
@@ -20,13 +31,15 @@ All code in the codebase should look like a single person typed it, no matter ho
 * Strip all end-of-line whitespace.
 * Ensure file ends with one line-break.
 
-## Guides by language
+<a name="guides-by-language"></a>
+## Guides by Language
 
 - [CoffeeScript](coffeescript.md)
 - [HTML](html.md)
 - [JavaScript](javascript.md)
 - [Sass](sass.md)
 
+<a name="license"></a>
 ## License
 
 The MIT License (MIT)
