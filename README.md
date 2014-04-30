@@ -7,23 +7,24 @@ Trunk Club Code Style Guide
 2. [In General](#in-general)
 3. [Whitespace](#whitespace)
 4. [Guides by Language](#guides-by-language)
-5. [License](#license)
-
+5. [CSS](#css)
+  * [Whitespace](#css-whitespace)
+7. [License](#license)
 
 <a name="golden-rule"></a>
-## The Golden Rule
+## 1. The Golden Rule
 
 All code in the codebase should look like a single person typed it, no matter how many people contribute.
 
 <a name="in-general"></a>
-## In General
+## 2. In General
 
 - do not commit commented-out code to master
 - don't leave `TODO`s, `FIXME`s or `BUG`s in the code, but if you do use `TODO`, `FIXME` or `BUG` in your comment
 - comments left in the code should be timeless, e.g. always applicable until they're removed
 
 <a name="whitespace"></a>
-## Whitespace
+## 3. Whitespace
 
 * Use whitespace to improve readability.
 * Use 2 spaces for indentation.
@@ -32,15 +33,27 @@ All code in the codebase should look like a single person typed it, no matter ho
 * Ensure file ends with one line-break.
 
 <a name="guides-by-language"></a>
-## Guides by Language
+## 4. Guides by Language
 
 - [CoffeeScript](coffeescript.md)
 - [HTML](html.md)
 - [JavaScript](javascript.md)
 - [Sass](sass.md)
 
+<a name="css"></a>
+## 5. CSS
+
+<a name="css-whitespace"></a>
+### 5.1 CSS Whitespace
+
+* Use whitespace to improve readability.
+* Use 2 spaces for indentation.
+* Don't use more than one blank line as a separator.
+* Strip all end-of-line whitespace.
+* Ensure file ends with one line-break.
+
 <a name="license"></a>
-## License
+## 6. License
 
 The MIT License (MIT)
 
