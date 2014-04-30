@@ -23,15 +23,15 @@ All code in the codebase should look like a single person typed it, no matter ho
 ## 2. In General
 
 - do not commit commented-out code to master
-- don't leave `TODO`s, `FIXME`s or `BUG`s in the code, but if you do use `TODO`, `FIXME` or `BUG` in your comment
-- comments left in the code should be timeless, e.g. always applicable until they're removed
+- don’t leave `TODO`s, `FIXME`s or `BUG`s in the code, but if you do use `TODO`, `FIXME` or `BUG` in your comment
+- comments left in the code should be timeless, e.g. always applicable until they’re removed
 
 <a name="whitespace"></a>
 ## 3. Whitespace
 
 * Use whitespace to improve readability.
 * Use two spaces for indentation.
-* In general, don't use more than one blank line as a separator.
+* In general, don’t use more than one blank line as a separator.
 * Strip all end-of-line whitespace.
 * Ensure file ends with one line-break.
 
@@ -51,7 +51,7 @@ All code in the codebase should look like a single person typed it, no matter ho
 
 * Use whitespace to improve readability.
 * Use two spaces for indentation.
-* Don't use more than one blank line as a separator.
+* Don’t use more than one blank line as a separator.
 * Strip all end-of-line whitespace.
 * Ensure file ends with one line-break.
 
@@ -59,7 +59,7 @@ All code in the codebase should look like a single person typed it, no matter ho
 ### 5.2. CSS Comments
 
 Well commented code is extremely important. Take time to describe components,
-how they work, their limitations, and the way they are constructed. Don't leave
+how they work, their limitations, and the way they are constructed. Don’t leave
 others in the team guessing as to the purpose of uncommon or non-obvious
 code.
 
@@ -68,7 +68,7 @@ Comment style should be simple and consistent within a single code base.
 * Place comments on a new line above their subject.
 * Keep line-length to a sensible maximum, e.g., 80 columns.
 * Make liberal use of comments to break CSS code into discrete sections.
-* Use "sentence case" comments and consistent text indentation.
+* Use “sentence case” comments and consistent text indentation.
 * Use numeric end-of-line comments to reference documentation for individual declarations.
 
 Tip: configure your editor to provide you with shortcuts to output agreed-upon
@@ -94,9 +94,9 @@ Example:
  *   at a later date. It wraps after 80 characters and following lines are
  *   indented by two spaces.
  *
- * @tag This is a tag named 'tag'
+ * @tag This is a tag named ‘tag’
  *
- * 1. A helpful description of a declaration's purpose.
+ * 1. A helpful description of a declaration’s purpose.
  * 2. Another declaration or collection of declarations can reference this
  *    comment with an inline comment corresponding to the lists number.
  */
