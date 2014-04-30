@@ -17,7 +17,8 @@ All code in the codebase should look like a single person typed it, no matter ho
 * Use whitespace to improve readability.
 * Use 2 spaces for indentation.
 * Don't use more than one blank line as a separator.
-* Strip all end-of-line and end-of-file whitespace.
+* Strip all end-of-line whitespace.
+* Ensure file ends with one line-break.
 
 ## Guides by language
 
