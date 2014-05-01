@@ -12,7 +12,14 @@ Trunk Club Code Style Guide
   * [Comments](#css-comments)
   * [Format](#css-format)
   * [Practical Example](#css-example)
-6. [License](#license)
+6. [HTML](#html)
+  * [Whitespace](#html-whitespace)
+  * [Format](#html-format)
+  * [Attribute Order](#html-attrs)
+  * [Naming](#html-naming)
+  * [Practical Example](#html-example)
+7. [JavaScript](#js)
+8. [License](#license)
 
 <a name="golden-rule"></a>
 ## 1. The Golden Rule
@@ -39,7 +46,6 @@ All code in the codebase should look like a single person typed it, no matter ho
 ## 4. Guides by Language
 
 - [CoffeeScript](coffeescript.md)
-- [HTML](html.md)
 - [JavaScript](javascript.md)
 - [Sass](sass.md)
 
@@ -278,10 +284,176 @@ An example of various conventions.
 }
 ```
 
+Based extensively on work at [github.com/suitcss/suit](https://github.com/suitcss/suit/blob/master/doc/STYLE.md) and [github.com/necolas/idiomatic-css](https://github.com/necolas/idiomatic-css/blob/master/README.md).
+
+<a name="html"></a>
+## 6. HTML
+
+<a name="html-whitespace"></a>
+### 6.1. HTML Whitespace
+
+* Use whitespace to improve readability.
+* Use two spaces for indentation.
+* Don’t use more than one blank line as a separator.
+* Strip all end-of-line whitespace.
+* Ensure file ends with one line-break.
+
+<a name="html-format"></a>
+### 6.2. HTML Format
+
+* Use semantic markup, e.g. use `button` and not `href` for “Close” links; see
+  also [content categories](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories).
+* Always use lowercase tag and attribute names.
+* Write one discrete, block-level element per line.
+* Use one additional level of indentation for each nested block-level element.
+* Use valueless boolean attributes (e.g. `checked` rather than `checked="checked"`).
+* Always use double quotes to quote attribute values.
+* Use the `id` attribute only for the DOM-insertion of content containers (e.g. layout areas, regions), form controls.
+* Use the [`alt` text decision tree](http://dev.w3.org/html5/alt-techniques/#tree) when adding `img` elements.
+* Include the `type` attribute for all `button` elements, using a value of `button`, `reset`, or `submit` where appropriate.
+* Omit the `type` attributes from `link` stylesheet, `style` and `script` elements.
+* Omit the `/` on [void elements](http://www.456bereastreet.com/archive/201005/void_empty_elements_and_self-closing_start_tags_in_html/), e.g. `<hr>` and not `<hr />` ([further reading](http://www.colorglare.com/2014/02/03/to-close-or-not-to-close.html)).
+* Avoid use of the `<br>` tag; consider possible use of other semantic markup instead.
+* Do not use classless `span` or `div` tags wrapped around content.
+* Do not use the `style` attribute; use `class` instead.
+* Always include closing tags.
+
+(Keep line-length to a sensible maximum, e.g., 80 columns.)
+
+Example:
+
+```html
+<div class="Tweet">
+  <a href="{{url}}">
+    <img src="{{avatar}}" alt="">
+  </a>
+  <p>{{text}}</p>
+  <button disabled type="button">Reply</button>
+</div>
+```
+
+#### Exceptions and slight deviations
+
+Elements with multiple attributes can have attributes arranged across multiple
+lines in an effort to improve readability and produce more useful diffs.
+
+Example:
+
+```html
+<a class="{{class}}"
+ data-action="{{action}}"
+ data-id="{{id}}"
+ href="{{url}}">
+  <span>{{text}}</span>
+</a>
+```
+
+<a name="html-attrs"></a>
+### 6.3. HTML Attribute Order
+
+HTML attributes should be listed in alphabetical order.
+
+Example:
+
+```html
+<a class="{{class}}" data-name="{{name}}" href="{{url}}" id="{{id}}">{{text}}</a>
+```
+
+<a name="html-naming"></a>
+### 6.4. HTML Naming
+
+Naming is hard, but very important. It's a crucial part of the process of
+developing a maintainable code base. Don't be afraid to rename components.
+
+* Use clear, thoughtful, and appropriate names for HTML classes. The names
+  should be informative both within HTML and CSS files.
+* Avoid _systematic_ use of abbreviated class names. Don't make things
+  difficult to understand.
+
+Example with “bad” names:
+
+```html
+<div class="cb s-scr"></div>
+```
+
+```css
+.cb {
+  background: #000;
+}
+
+.cb.s-scr {
+  overflow: auto;
+}
+```
+
+Example with better names:
+
+```html
+<div class="ColumnBody is-scrollable"></div>
+```
+
+```css
+.ColumnBody {
+    background: #000;
+}
+
+.ColumnBody.is-scrollable {
+    overflow: auto;
+}
+```
+
+<a name="html-example"></a>
+### 6.5. HTML Practical Example
+
+An example of various conventions.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <article class="Post" id="1234">
+      <time class="Post-timestamp">{{date}}</time>
+      <a data-analytics-action="{{action}}"
+       data-analytics-category="{{category}}"
+       data-id="1234"
+       href="{{url}}">{{text}}</a>
+      <ul>
+        <li>
+          <a href="{{url}}">{{text}}</a>
+          <img src="{{src}}" alt="">
+        </li>
+        <li>
+          <a href="{{url}}">{{text}}</a>
+        </li>
+      </ul>
+
+      <a class="u-linkComplex" href="{{url}}">
+        <span class="u-linkComplex-target">{{text}}</span>
+        {{text}}
+      </a>
+
+      <input value="text" readonly>
+    </article>
+  </body>
+</html>
+```
+
 Based extensively on work at [github.com/suitcss/suit](https://github.com/suitcss/suit/blob/master/doc/STYLE.md) and [github.com/necolas/idiomatic-html](https://github.com/necolas/idiomatic-html/blob/master/README.md).
 
+<a name="js"></a>
+## 7. JavaScript
+
+* Apply and remove class names to affect style, rather than writing JavaScript to do the same.
+* Use [SUIT-style naming](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#js-someName) for script hooks along with an indication of the element type, e.g. `class="js-widgetBtn"`.
+
 <a name="license"></a>
-## 6. License
+## 8. License
 
 _Trunk Club Coding Style Guide_ is licensed under the [Creative Commons
 Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
