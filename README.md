@@ -306,18 +306,13 @@ Based extensively on work at [github.com/suitcss/suit](https://github.com/suitcs
 * Always use lowercase tag and attribute names.
 * Write one discrete, block-level element per line.
 * Use one additional level of indentation for each nested block-level element.
-* Use valueless boolean attributes (e.g. `checked` rather than
-  `checked="checked"`).
+* Use valueless boolean attributes (e.g. `checked` rather than `checked="checked"`).
 * Always use double quotes to quote attribute values.
 * Use the `id` attribute only for the DOM-insertion of content containers (e.g. layout areas, regions), form controls.
 * Use the [`alt` text decision tree](http://dev.w3.org/html5/alt-techniques/#tree) when adding `img` elements.
-* Include the `type` attribute for all `button` elements, using a value of
-  `button`, `reset`, or `submit` where appropriate.
-* Omit the `type` attributes from `link` stylesheet, `style` and `script`
-  elements.
-* Omit the `/` on [void elements](http://www.456bereastreet.com/archive/201005/void_empty_elements_and_self-closing_start_tags_in_html/),
-  e.g. `<hr>` and not `<hr />` ([further reading](http://www.colorglare.com/2014/02/03/to-close-or-not-to-close.html)).
-
+* Include the `type` attribute for all `button` elements, using a value of `button`, `reset`, or `submit` where appropriate.
+* Omit the `type` attributes from `link` stylesheet, `style` and `script` elements.
+* Omit the `/` on [void elements](http://www.456bereastreet.com/archive/201005/void_empty_elements_and_self-closing_start_tags_in_html/), e.g. `<hr>` and not `<hr />` ([further reading](http://www.colorglare.com/2014/02/03/to-close-or-not-to-close.html)).
 * Avoid use of the `<br>` tag; consider possible use of other semantic markup instead.
 * Do not use classless `span` or `div` tags wrapped around content.
 * Do not use the `style` attribute; use `class` instead.
