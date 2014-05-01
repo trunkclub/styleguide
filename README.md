@@ -12,7 +12,7 @@ Trunk Club Code Style Guide
   * [Comments](#css-comments)
   * [Format](#css-format)
   * [Practical Example](#css-example)
-7. [License](#license)
+6. [License](#license)
 
 <a name="golden-rule"></a>
 ## 1. The Golden Rule
