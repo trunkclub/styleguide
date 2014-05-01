@@ -333,7 +333,7 @@ Example:
     <img src="{{avatar}}" alt="">
   </a>
   <p>{{text}}</p>
-  <button disabled>Reply</button>
+  <button disabled type="button">Reply</button>
 </div>
 ```
 
@@ -375,7 +375,7 @@ developing a maintainable code base. Don't be afraid to rename components.
 * Avoid _systematic_ use of abbreviated class names. Don't make things
   difficult to understand.
 
-Example with "bad" names:
+Example with “bad” names:
 
 ```html
 <div class="cb s-scr"></div>
