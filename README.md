@@ -47,6 +47,8 @@ All code in the codebase should look like a single person typed it, no matter ho
 
 - [CoffeeScript](coffeescript.md)
 - [JavaScript](javascript.md)
+- [Backbone](backbone.md)
+- [Chaplin](chaplin.md)
 - [Sass](sass.md)
 
 <a name="css"></a>
