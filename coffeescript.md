@@ -16,3 +16,4 @@ When writing not JavaScript.
 - wrap object literals in curly braces when defining on a single line, e.g. `new View {@collection}` and not `new View collection: @collection`
 - don't align `key:value` pairs in columns
 - use meaningful variable names, e.g. `callback` and not `cb`
+- method names should start with a verb denoting the action with which the method takes, e.g. `_getPrices`
