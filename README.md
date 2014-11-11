@@ -15,10 +15,8 @@ Trunk Club Code Style Guide
 6. [HTML](#html)
   * [Whitespace](#html-whitespace)
   * [Format](#html-format)
-  * [Attribute Order](#html-attrs)
   * [Naming](#html-naming)
   * [Practical Example](#html-example)
-7. [JavaScript](#js)
 8. [License](#license)
 
 <a name="golden-rule"></a>
@@ -334,33 +332,6 @@ Example:
 </div>
 ```
 
-#### Exceptions and slight deviations
-
-Elements with multiple attributes can have attributes arranged across multiple
-lines in an effort to improve readability and produce more useful diffs.
-
-Example:
-
-```html
-<a class="{{class}}"
- data-action="{{action}}"
- data-id="{{id}}"
- href="{{url}}">
-  <span>{{text}}</span>
-</a>
-```
-
-<a name="html-attrs"></a>
-### 6.3. HTML Attribute Order
-
-HTML attributes should be listed in alphabetical order.
-
-Example:
-
-```html
-<a class="{{class}}" data-name="{{name}}" href="{{url}}" id="{{id}}">{{text}}</a>
-```
-
 <a name="html-naming"></a>
 ### 6.4. HTML Naming
 
@@ -447,12 +418,6 @@ An example of various conventions.
 ```
 
 Based extensively on work at [github.com/suitcss/suit](https://github.com/suitcss/suit/blob/master/doc/STYLE.md) and [github.com/necolas/idiomatic-html](https://github.com/necolas/idiomatic-html/blob/master/README.md).
-
-<a name="js"></a>
-## 7. JavaScript
-
-* Apply and remove class names to affect style, rather than writing JavaScript to do the same.
-* Use [SUIT-style naming](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#js-someName) for script hooks along with an indication of the element type, e.g. `class="js-widgetBtn"`.
 
 <a name="license"></a>
 ## 8. License
