@@ -16,4 +16,7 @@ When writing not JavaScript.
 - wrap object literals in curly braces when defining on a single line, e.g. `new View {@collection}` and not `new View collection: @collection`
 - don't align `key:value` pairs in columns
 - use meaningful variable names, e.g. `callback` and not `cb`
+- observer methods should begin with `on`, e.g. `onClick`
+- indicate private methods for a class by prefixing the class name with an `_`, e.g. `_onModelSync`
 - method names should start with a verb or verb phrase, e.g. `_getPrices`, `isEnabled`
+- abbreviate commonly used words, such as `attr`, `btn`, `inpt`, `el`
