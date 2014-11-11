@@ -16,7 +16,7 @@ When writing unfancy JavaScript.
 - use double quotes around attribute selector values, e.g. `@$('[data-spy="tbotterson"]')`
 - when naming custom events for the `mediator`, use simple `noun:verb` syntax, e.g. `scanner:activate`
 - wrap object literals in curly braces when defining on a single line, e.g. `new View {@collection}` and not `new View collection: @collection`
-- don't align `key:value` pairs in columns
+- don't align `key:value` or assignments pairs in vertical columns
 - use meaningful variable names, e.g. `callback` and not `cb`
 - observer methods should begin with `on`, e.g. `onClick`
 - indicate private methods for a class by prefixing the class name with an `_`, e.g. `_onModelSync`
