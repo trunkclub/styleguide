@@ -7,6 +7,7 @@ You should structure your React Components like this to ensure consistency. Whet
 
 1. Attributes
   * If you are using a mixin that requires you to specify an attribute on the Component's prototype (and not on the instance itself), do that here as well
+
   ```Coffeescript
   ComponentName = React.createClass
     displayName: 'ComponentName'
@@ -15,7 +16,9 @@ You should structure your React Components like this to ensure consistency. Whet
     propTypes: {}
     listen: {} # Custom attribute needed by a mixin
   ```
+
 2. React lifecycle hooks
+
   ```Coffeescript
     getInitialState: -> {}
     componentWillMount: ->
@@ -25,18 +28,24 @@ You should structure your React Components like this to ensure consistency. Whet
     componentWillUpdate: (nextProps, nextState) ->
     componentDidUpdate: (prevProps, prevState) ->
   ```
+
 3. Event handlers
+
   ```Coffeescript
     onClickBtn: (evt) -> # on(EventType)(SourceItem)
                          # the React docs will use `handle(EventType)`.
                          # Same thinking, different naming
   ```
+
 4. Helper methods for making chunks of UI
+
   ```CoffeeScript
     makeListOfItems: ->
       @state.items.map (item, index) -> <li key-{index}>{item}</li>
   ```
+
 5. `render()`
+
   ```CoffeeScript
     render: ->
       <span>{@makeListOfItems()}</span>
@@ -44,6 +53,7 @@ You should structure your React Components like this to ensure consistency. Whet
 
 ## Code style
 1. Make sure that you are returning a single root element inside of `render()`
+
   ```CoffeeScript
     ###
     BAD EXAMPLE:
@@ -70,7 +80,9 @@ You should structure your React Components like this to ensure consistency. Whet
         </div>
       </section>
   ```
+
 2. If you have more than 3 props on a React component, move each prop declaration to a new line
+
   ```CoffeeScript
     # Good
     render: ->
@@ -106,24 +118,32 @@ You should structure your React Components like this to ensure consistency. Whet
           <span>Inner content!</span>
         </ComponentName
   ```
+
 3. Keep one space before the termination of a void component (one that does not have `children`)
+
   ```CoffeeScript
   <ComponentName x={@state.x} /> # Good
   <ComponentName x={@state.x}/> # Bad
   ```
+
 4. Wrap all inline object literals in curly braces
+
   ```CoffeeScript
   <ComponentName x={y: 5} /> # Bad
   <ComponentName x={{y: 5}} /> # Good
   ```
+
 5. If you are implicitly passing down `props` or `state`, use the Spread operator:
+
   ```CoffeeScript
   ###
   @state = {x: 5, y: 6, z: 7}
   ###
   <ComponentName {...@state} /> # Then you can call `@prop.x` inside of `ComponentName`
   ```
+
 6. Use multi-line if-statements wherever possible
+
   ```CoffeeScript
     render: ->
       text =
@@ -140,7 +160,9 @@ You should structure your React Components like this to ensure consistency. Whet
         } # Good, since it's long
       </span>
   ```
+
 7. If you have multiple mixins, define each one on a new line:
+
   ```CoffeeScript
   SomeComponent = React.createClass
     mixins: [
@@ -148,65 +170,70 @@ You should structure your React Components like this to ensure consistency. Whet
       MixinTwo
     ]
   ```
+
 8. Remember to `key` like elements that appear in arrays
-  a. Any adjacent React Components are represented by arrays of elements.
-  b. This is to provide React with the information to hueristically optimize UI reconciliation (figuring out what to re-render and what not to)
-```CoffeeScript
-  render: ->
-    <div>
-      <p key={1}>Some text</p>
-      <p key={2}>Some other text</p>
-      <p key={3}>Some more text</p>
-    </div>
+  * Any adjacent React Components are represented by arrays of elements.
+  * This is to provide React with the information to hueristically optimize UI reconciliation (figuring out what to re-render and what not to)
 
-  makeItem: (item, index) ->
-    <p key={index}>{item}</p> # `map`-ing over the elements
-                              # lets you use the index of the item
-                              # in the array as a key.
-                              # 
-                              # `key` just has to be unique in the array,
-                              # it doesn't have to be unique across the page.
-                              #
-                              # If you are constantly re-sorting items in the
-                              # array, try to use the resource's ID. If not,
-                              # using the index of the element in the source array works
-  render: ->
-    <div>
-      {@state.items.map(@makeItem)}
-    </div>
-```
+  ```CoffeeScript
+    render: ->
+      <div>
+        <p key={1}>Some text</p>
+        <p key={2}>Some other text</p>
+        <p key={3}>Some more text</p>
+      </div>
+
+    makeItem: (item, index) ->
+      <p key={index}>{item}</p> # `map`-ing over the elements
+                                # lets you use the index of the item
+                                # in the array as a key.
+                                # 
+                                # `key` just has to be unique in the array,
+                                # it doesn't have to be unique across the page.
+                                #
+                                # If you are constantly re-sorting items in the
+                                # array, try to use the resource's ID. If not,
+                                # using the index of the element in the source array works
+    render: ->
+      <div>
+        {@state.items.map(@makeItem)}
+      </div>
+  ```
+
 9. Use expressions to iterate over datasets & render components
-  a. `map`, `filter`, `concat`, etc.
-  b. Lodash/underscore methods work as well (`where`, `reject`, `pluck`, etc.)
-```Coffeescript
-  ###
-  @props.items = [1,2,3,4,5]
-  ###
+  * `map`, `filter`, `concat`, etc.
+  * Lodash/underscore methods work as well (`where`, `reject`, `pluck`, etc.)
 
-  # Good example
-  showEvenItems: (item, index) ->
-    item % 2 == 0
-  makeItem: (item, index) ->
-    <li key={item.database_id}>{item}</li>
-  render: ->
-    <ul>
-      {@props.items.filter(@showEvenItems).map(@makeItem)}
-    </ul>
+  ```Coffeescript
+    ###
+    @props.items = [1,2,3,4,5]
+    ###
 
-  # Bad example
-  # This works, and is actually faster, but using functional expressions helps
-  # to abstract the idea of iteration. Most paradigms in JS applications can be expressed
-  # and manipulated with `map` or `filter`, so these functions help to ensure a common
-  # "language" for dealing with sets of information
-  makeItems: ->
-    for item in @props.items
-      if item % 2 == 0
-        <li key={item.database_id}>{item}</li>
-  render: ->
-    <ul>
-      {@makeItems()}
-    </ul>
-```
+    # Good example
+    showEvenItems: (item, index) ->
+      item % 2 == 0
+    makeItem: (item, index) ->
+      <li key={item.database_id}>{item}</li>
+    render: ->
+      <ul>
+        {@props.items.filter(@showEvenItems).map(@makeItem)}
+      </ul>
+
+    # Bad example
+    # This works, and is actually faster, but using functional expressions helps
+    # to abstract the idea of iteration. Most paradigms in JS applications can be expressed
+    # and manipulated with `map` or `filter`, so these functions help to ensure a common
+    # "language" for dealing with sets of information
+    makeItems: ->
+      for item in @props.items
+        if item % 2 == 0
+          <li key={item.database_id}>{item}</li>
+    render: ->
+      <ul>
+        {@makeItems()}
+      </ul>
+  ```
+  
 10. Don't use `class` when setting classes on an element
   * Use `className` instead. React will warn you about this one
   * You can also use `React.addons`'s `classSet` to conditionally set classes
