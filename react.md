@@ -117,6 +117,7 @@ You should structure your React Components like this to ensure consistency. Whet
         thing={@state.thing}>
         <span>Inner content!</span>
       </ComponentName>
+    </span>
   ```
 
 3. Keep one space before the termination of a void component (one that does not have `children`)
