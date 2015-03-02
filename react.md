@@ -6,7 +6,7 @@ This guide assumes that you are writing in the coffeescript-flavor of [JSX](http
 You should structure your React Components like this to ensure consistency. Whether you're using ES6 or Coffeescript or PoopyScript, it should be ordered like this
 
 1. Attributes
-  * If you are using a mixin that requires you to specify an attribute on the Component's prototype (and not on the instance itself), do that here as well
+  1. If you are using a mixin that requires you to specify an attribute on the Component's prototype (and not on the instance itself), do that here as well
 
   ```Coffeescript
   ComponentName = React.createClass
@@ -172,8 +172,8 @@ You should structure your React Components like this to ensure consistency. Whet
   ```
 
 8. Remember to `key` like elements that appear in arrays
-  * Any adjacent React Components are represented by arrays of elements.
-  * This is to provide React with the information to hueristically optimize UI reconciliation (figuring out what to re-render and what not to)
+  1. Any adjacent React Components are represented by arrays of elements.
+  2. This is to provide React with the information to hueristically optimize UI reconciliation (figuring out what to re-render and what not to)
 
   ```CoffeeScript
   render: ->
@@ -201,8 +201,8 @@ You should structure your React Components like this to ensure consistency. Whet
   ```
 
 9. Use expressions to iterate over datasets & render components
-  * `map`, `filter`, `concat`, etc.
-  * Lodash/underscore methods work as well (`where`, `reject`, `pluck`, etc.)
+  1. `map`, `filter`, `concat`, etc.
+  2. Lodash/underscore methods work as well (`where`, `reject`, `pluck`, etc.)
 
   ```Coffeescript
   ###
@@ -235,9 +235,9 @@ You should structure your React Components like this to ensure consistency. Whet
   ```
   
 10. Don't use `class` when setting classes on an element
-  * Use `className` instead. React will warn you about this one
-  * You can also use `React.addons`'s `classSet` to conditionally set classes
-  * `itemClasses = classSet({'ComponentName': true, 'is-disabled': @state.isDisabled})`
+  1. Use `className` instead. React will warn you about this one
+  2. You can also use `React.addons`'s `classSet` to conditionally set classes
+  3. `itemClasses = classSet({'ComponentName': true, 'is-disabled': @state.isDisabled})`
 11. Always use `setState` to change the value of a Component's `state`
 12. No need to define Component-private methods with `_` prefixes.
-  * Methods attached to the Component are private by default (and auto-bound to `this`)
+  1. Methods attached to the Component are private by default (and auto-bound to `this`)
