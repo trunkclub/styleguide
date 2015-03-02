@@ -6,147 +6,148 @@ This guide assumes that you are writing in the coffeescript-flavor of [JSX](http
 You should structure your React Components like this to ensure consistency. Whether you're using ES6 or Coffeescript or PoopyScript, it should be ordered like this
 
 1. Attributes
-  a. If you are using a mixin that requires you to specify an attribute on the Component's prototype (and not on the instance itself), do that here as well
-```Coffeescript
-ComponentName = React.createClass
-  displayName: 'ComponentName'
-  mixins: []
-  statics: {}
-  propTypes: {}
-  listen: {} # Custom attribute needed by a mixin
-```
+  * If you are using a mixin that requires you to specify an attribute on the Component's prototype (and not on the instance itself), do that here as well
+  ```Coffeescript
+  ComponentName = React.createClass
+    displayName: 'ComponentName'
+    mixins: []
+    statics: {}
+    propTypes: {}
+    listen: {} # Custom attribute needed by a mixin
+  ```
 2. React lifecycle hooks
-```Coffeescript
-  getInitialState: -> {}
-  componentWillMount: ->
-  componentDidMount: ->
-  componentWillReceiveProps: (nextProps) ->
-  shouldComponentUpdate: (nextProps, nextState) -> true
-  componentWillUpdate: (nextProps, nextState) ->
-  componentDidUpdate: (prevProps, prevState) ->
-```
+  ```Coffeescript
+    getInitialState: -> {}
+    componentWillMount: ->
+    componentDidMount: ->
+    componentWillReceiveProps: (nextProps) ->
+    shouldComponentUpdate: (nextProps, nextState) -> true
+    componentWillUpdate: (nextProps, nextState) ->
+    componentDidUpdate: (prevProps, prevState) ->
+  ```
 3. Event handlers
-```Coffeescript
-  onClickBtn: (evt) -> # on(EventType)(SourceItem)
-                       # the React docs will use `handle(EventType)`.
-                       # Same thinking, different naming
-```
+  ```Coffeescript
+    onClickBtn: (evt) -> # on(EventType)(SourceItem)
+                         # the React docs will use `handle(EventType)`.
+                         # Same thinking, different naming
+  ```
 4. Helper methods for making chunks of UI
-```CoffeeScript
-  makeListOfItems: ->
-    @state.items.map (item, index) -> <li key-{index}>{item}</li>
-```
+  ```CoffeeScript
+    makeListOfItems: ->
+      @state.items.map (item, index) -> <li key-{index}>{item}</li>
+  ```
 5. `render()`
-```CoffeeScript
-  render: ->
-    <span>{@makeListOfItems()}</span>
-```
+  ```CoffeeScript
+    render: ->
+      <span>{@makeListOfItems()}</span>
+  ```
 
 ## Code style
 1. Make sure that you are returning a single root element inside of `render()`
-```CoffeeScript
-  ###
-  BAD EXAMPLE:
-  -----------
-  This example will function as expected due to the way that coffeescript compiles.
-  
-  The last token in a scope will be returned, which means that the last compiled JSX
-  node (the `<div>`) will be returned, and the first one will not.
-  ###
-  render: ->
-    <div>Here is some content</div>
-    <div>
-      <p>Here is some more</p>
-    </div>
-
-  # GOOD EXAMPLE:
-  render: ->
-    <section>
-      <header>
-        <nav>Here is the navigation</nav>
-      </header>
+  ```CoffeeScript
+    ###
+    BAD EXAMPLE:
+    -----------
+    This example will function as expected due to the way that coffeescript compiles.
+    
+    The last token in a scope will be returned, which means that the last compiled JSX
+    node (the `<div>`) will be returned, and the first one will not.
+    ###
+    render: ->
+      <div>Here is some content</div>
       <div>
-        <p>Here is the first text on the page!</p>
+        <p>Here is some more</p>
       </div>
-    </section>
-```
+
+    # GOOD EXAMPLE:
+    render: ->
+      <section>
+        <header>
+          <nav>Here is the navigation</nav>
+        </header>
+        <div>
+          <p>Here is the first text on the page!</p>
+        </div>
+      </section>
+  ```
 2. If you have more than 3 props on a React component, move each prop declaration to a new line
-```CoffeeScript
-  # Good
-  render: ->
-    <span>
-      <ComponentName a={@state.a} b={@state.b} />
-    </span>
+  ```CoffeeScript
+    # Good
+    render: ->
+      <span>
+        <ComponentName a={@state.a} b={@state.b} />
+      </span>
 
-  # Bad
-  render: ->
-    <span>
-      <ComponentName a={@state.a} b={@state.b} c={@state.c} d={@state.d} />
-    </span>
+    # Bad
+    render: ->
+      <span>
+        <ComponentName a={@state.a} b={@state.b} c={@state.c} d={@state.d} />
+      </span>
 
-  # Good; note how the termination of the null component is on its own line
-  render: ->
-    <span>
-      <ComponentName
-        a={@state.a}
-        b={@state.b}
-        c={@state.c}
-        d={@state.d}
-      />
-    </span>
+    # Good; note how the termination of the null component is on its own line
+    render: ->
+      <span>
+        <ComponentName
+          a={@state.a}
+          b={@state.b}
+          c={@state.c}
+          d={@state.d}
+        />
+      </span>
 
-  # Good; note how the termination of the component with `children` is on the same line
-  # as the last prop
-  render: ->
-    <span>
-      <ComponentName
-        something={@props.something}
-        otherStuff={@props.otherStuff}
-        thing={@state.thing}>
-        <span>Inner content!</span>
-      </ComponentName
-```
+    # Good; note how the termination of the component with `children` is on the same line
+    # as the last prop
+    render: ->
+      <span>
+        <ComponentName
+          something={@props.something}
+          otherStuff={@props.otherStuff}
+          thing={@state.thing}>
+          <span>Inner content!</span>
+        </ComponentName
+  ```
 3. Keep one space before the termination of a void component (one that does not have `children`)
-```CoffeeScript
-<ComponentName x={@state.x} /> # Good
-<ComponentName x={@state.x}/> # Bad
+  ```CoffeeScript
+  <ComponentName x={@state.x} /> # Good
+  <ComponentName x={@state.x}/> # Bad
+  ```
 4. Wrap all inline object literals in curly braces
-```CoffeeScript
-<ComponentName x={y: 5} /> # Bad
-<ComponentName x={{y: 5}} /> # Good
-```
+  ```CoffeeScript
+  <ComponentName x={y: 5} /> # Bad
+  <ComponentName x={{y: 5}} /> # Good
+  ```
 5. If you are implicitly passing down `props` or `state`, use the Spread operator:
-```CoffeeScript
-###
-@state = {x: 5, y: 6, z: 7}
-###
-<ComponentName {...@state} /> # Then you can call `@prop.x` inside of `ComponentName`
-```
+  ```CoffeeScript
+  ###
+  @state = {x: 5, y: 6, z: 7}
+  ###
+  <ComponentName {...@state} /> # Then you can call `@prop.x` inside of `ComponentName`
+  ```
 6. Use multi-line if-statements wherever possible
-```CoffeeScript
-  render: ->
-    text =
-      if @state.isVisible
-        <span>Or this is alright, too</span>
-    <span>
-      {text} 
-      {if @state.isVisible then <h1>Show this</h1>} # Good, since it's short
-      {if @state.isVisible then <p><strong>Bold first word</strong> and regular 
-       elsewhere</p>} # Bad, because it's not short
-      {if @state.isVisible then {@state.text}} # Good, since it's short (and a variable)
-      {if @state.isVisible
-        <p><strong>Bold first word</strong> and regular stuff elsewhere</p>
-      } # Good, since it's long
-    </span>
-```
+  ```CoffeeScript
+    render: ->
+      text =
+        if @state.isVisible
+          <span>Or this is alright, too</span>
+      <span>
+        {text} 
+        {if @state.isVisible then <h1>Show this</h1>} # Good, since it's short
+        {if @state.isVisible then <p><strong>Bold first word</strong> and regular 
+         elsewhere</p>} # Bad, because it's not short
+        {if @state.isVisible then {@state.text}} # Good, since it's short (and a variable)
+        {if @state.isVisible
+          <p><strong>Bold first word</strong> and regular stuff elsewhere</p>
+        } # Good, since it's long
+      </span>
+  ```
 7. If you have multiple mixins, define each one on a new line:
-```CoffeeScript
-SomeComponent = React.createClass
-  mixins: [
-    MixinOne
-    MixinTwo
-  ]
-```
+  ```CoffeeScript
+  SomeComponent = React.createClass
+    mixins: [
+      MixinOne
+      MixinTwo
+    ]
+  ```
 8. Remember to `key` like elements that appear in arrays
   a. Any adjacent React Components are represented by arrays of elements.
   b. This is to provide React with the information to hueristically optimize UI reconciliation (figuring out what to re-render and what not to)
@@ -207,9 +208,9 @@ SomeComponent = React.createClass
     </ul>
 ```
 10. Don't use `class` when setting classes on an element
-  a. Use `className` instead. React will warn you about this one
-  b. You can also use `React.addons`'s `classSet` to conditionally set classes
-  c. `itemClasses = classSet({'ComponentName': true, 'is-disabled': @state.isDisabled})`
+  * Use `className` instead. React will warn you about this one
+  * You can also use `React.addons`'s `classSet` to conditionally set classes
+  * `itemClasses = classSet({'ComponentName': true, 'is-disabled': @state.isDisabled})`
 11. Always use `setState` to change the value of a Component's `state`
 12. No need to define Component-private methods with `_` prefixes.
-  a. Methods attached to the Component are private by default (and auto-bound to `this`)
+  * Methods attached to the Component are private by default (and auto-bound to `this`)
