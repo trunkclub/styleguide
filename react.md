@@ -137,9 +137,7 @@ You should structure your React Components like this to ensure consistency. Whet
 5. If you are implicitly passing down `props` or `state`, use the Spread operator:
 
   ```CoffeeScript
-  ###
-  @state = {x: 5, y: 6, z: 7}
-  ###
+  # @state = {x: 5, y: 6, z: 7}
   <ComponentName {...@state} /> # Then you can call `@prop.x` inside of `ComponentName`
   ```
 
