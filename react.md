@@ -20,103 +20,103 @@ You should structure your React Components like this to ensure consistency. Whet
 2. React lifecycle hooks
 
   ```Coffeescript
-    getInitialState: -> {}
-    componentWillMount: ->
-    componentDidMount: ->
-    componentWillReceiveProps: (nextProps) ->
-    shouldComponentUpdate: (nextProps, nextState) -> true
-    componentWillUpdate: (nextProps, nextState) ->
-    componentDidUpdate: (prevProps, prevState) ->
+  getInitialState: -> {}
+  componentWillMount: ->
+  componentDidMount: ->
+  componentWillReceiveProps: (nextProps) ->
+  shouldComponentUpdate: (nextProps, nextState) -> true
+  componentWillUpdate: (nextProps, nextState) ->
+  componentDidUpdate: (prevProps, prevState) ->
   ```
 
 3. Event handlers
 
   ```Coffeescript
-    onClickBtn: (evt) -> # on(EventType)(SourceItem)
-                         # the React docs will use `handle(EventType)`.
-                         # Same thinking, different naming
+  onClickBtn: (evt) -> # on(EventType)(SourceItem)
+                       # the React docs will use `handle(EventType)`.
+                       # Same thinking, different naming
   ```
 
 4. Helper methods for making chunks of UI
 
   ```CoffeeScript
-    makeListOfItems: ->
-      @state.items.map (item, index) -> <li key-{index}>{item}</li>
+  makeListOfItems: ->
+    @state.items.map (item, index) -> <li key-{index}>{item}</li>
   ```
 
 5. `render()`
 
   ```CoffeeScript
-    render: ->
-      <span>{@makeListOfItems()}</span>
+  render: ->
+    <span>{@makeListOfItems()}</span>
   ```
 
 ## Code style
 1. Make sure that you are returning a single root element inside of `render()`
 
   ```CoffeeScript
-    ###
-    BAD EXAMPLE:
-    -----------
-    This example will function as expected due to the way that coffeescript compiles.
-    
-    The last token in a scope will be returned, which means that the last compiled JSX
-    node (the `<div>`) will be returned, and the first one will not.
-    ###
-    render: ->
-      <div>Here is some content</div>
-      <div>
-        <p>Here is some more</p>
-      </div>
+  ###
+  BAD EXAMPLE:
+  -----------
+  This example will function as expected due to the way that coffeescript compiles.
+  
+  The last token in a scope will be returned, which means that the last compiled JSX
+  node (the `<div>`) will be returned, and the first one will not.
+  ###
+  render: ->
+    <div>Here is some content</div>
+    <div>
+      <p>Here is some more</p>
+    </div>
 
-    # GOOD EXAMPLE:
-    render: ->
-      <section>
-        <header>
-          <nav>Here is the navigation</nav>
-        </header>
-        <div>
-          <p>Here is the first text on the page!</p>
-        </div>
-      </section>
+  # GOOD EXAMPLE:
+  render: ->
+    <section>
+      <header>
+        <nav>Here is the navigation</nav>
+      </header>
+      <div>
+        <p>Here is the first text on the page!</p>
+      </div>
+    </section>
   ```
 
 2. If you have more than 3 props on a React component, move each prop declaration to a new line
 
   ```CoffeeScript
-    # Good
-    render: ->
-      <span>
-        <ComponentName a={@state.a} b={@state.b} />
-      </span>
+  # Good
+  render: ->
+    <span>
+      <ComponentName a={@state.a} b={@state.b} />
+    </span>
 
-    # Bad
-    render: ->
-      <span>
-        <ComponentName a={@state.a} b={@state.b} c={@state.c} d={@state.d} />
-      </span>
+  # Bad
+  render: ->
+    <span>
+      <ComponentName a={@state.a} b={@state.b} c={@state.c} d={@state.d} />
+    </span>
 
-    # Good; note how the termination of the null component is on its own line
-    render: ->
-      <span>
-        <ComponentName
-          a={@state.a}
-          b={@state.b}
-          c={@state.c}
-          d={@state.d}
-        />
-      </span>
+  # Good; note how the termination of the null component is on its own line
+  render: ->
+    <span>
+      <ComponentName
+        a={@state.a}
+        b={@state.b}
+        c={@state.c}
+        d={@state.d}
+      />
+    </span>
 
-    # Good; note how the termination of the component with `children` is on the same line
-    # as the last prop
-    render: ->
-      <span>
-        <ComponentName
-          something={@props.something}
-          otherStuff={@props.otherStuff}
-          thing={@state.thing}>
-          <span>Inner content!</span>
-        </ComponentName
+  # Good; note how the termination of the component with `children` is on the same line
+  # as the last prop
+  render: ->
+    <span>
+      <ComponentName
+        something={@props.something}
+        otherStuff={@props.otherStuff}
+        thing={@state.thing}>
+        <span>Inner content!</span>
+      </ComponentName>
   ```
 
 3. Keep one space before the termination of a void component (one that does not have `children`)
@@ -145,20 +145,20 @@ You should structure your React Components like this to ensure consistency. Whet
 6. Use multi-line if-statements wherever possible
 
   ```CoffeeScript
-    render: ->
-      text =
-        if @state.isVisible
-          <span>Or this is alright, too</span>
-      <span>
-        {text} 
-        {if @state.isVisible then <h1>Show this</h1>} # Good, since it's short
-        {if @state.isVisible then <p><strong>Bold first word</strong> and regular 
-         elsewhere</p>} # Bad, because it's not short
-        {if @state.isVisible then {@state.text}} # Good, since it's short (and a variable)
-        {if @state.isVisible
-          <p><strong>Bold first word</strong> and regular stuff elsewhere</p>
-        } # Good, since it's long
-      </span>
+  render: ->
+    text =
+      if @state.isVisible
+        <span>Or this is alright, too</span>
+    <span>
+      {text} 
+      {if @state.isVisible then <h1>Show this</h1>} # Good, since it's short
+      {if @state.isVisible then <p><strong>Bold first word</strong> and regular 
+       elsewhere</p>} # Bad, because it's not short
+      {if @state.isVisible then {@state.text}} # Good, since it's short (and a variable)
+      {if @state.isVisible
+        <p><strong>Bold first word</strong> and regular stuff elsewhere</p>
+      } # Good, since it's long
+    </span>
   ```
 
 7. If you have multiple mixins, define each one on a new line:
@@ -176,28 +176,28 @@ You should structure your React Components like this to ensure consistency. Whet
   * This is to provide React with the information to hueristically optimize UI reconciliation (figuring out what to re-render and what not to)
 
   ```CoffeeScript
-    render: ->
-      <div>
-        <p key={1}>Some text</p>
-        <p key={2}>Some other text</p>
-        <p key={3}>Some more text</p>
-      </div>
+  render: ->
+    <div>
+      <p key={1}>Some text</p>
+      <p key={2}>Some other text</p>
+      <p key={3}>Some more text</p>
+    </div>
 
-    makeItem: (item, index) ->
-      <p key={index}>{item}</p> # `map`-ing over the elements
-                                # lets you use the index of the item
-                                # in the array as a key.
-                                # 
-                                # `key` just has to be unique in the array,
-                                # it doesn't have to be unique across the page.
-                                #
-                                # If you are constantly re-sorting items in the
-                                # array, try to use the resource's ID. If not,
-                                # using the index of the element in the source array works
-    render: ->
-      <div>
-        {@state.items.map(@makeItem)}
-      </div>
+  makeItem: (item, index) ->
+    <p key={index}>{item}</p> # `map`-ing over the elements
+                              # lets you use the index of the item
+                              # in the array as a key.
+                              # 
+                              # `key` just has to be unique in the array,
+                              # it doesn't have to be unique across the page.
+                              #
+                              # If you are constantly re-sorting items in the
+                              # array, try to use the resource's ID. If not,
+                              # using the index of the element in the source array works
+  render: ->
+    <div>
+      {@state.items.map(@makeItem)}
+    </div>
   ```
 
 9. Use expressions to iterate over datasets & render components
@@ -205,33 +205,33 @@ You should structure your React Components like this to ensure consistency. Whet
   * Lodash/underscore methods work as well (`where`, `reject`, `pluck`, etc.)
 
   ```Coffeescript
-    ###
-    @props.items = [1,2,3,4,5]
-    ###
+  ###
+  @props.items = [1,2,3,4,5]
+  ###
 
-    # Good example
-    showEvenItems: (item, index) ->
-      item % 2 == 0
-    makeItem: (item, index) ->
-      <li key={item.database_id}>{item}</li>
-    render: ->
-      <ul>
-        {@props.items.filter(@showEvenItems).map(@makeItem)}
-      </ul>
+  # Good example
+  showEvenItems: (item, index) ->
+    item % 2 == 0
+  makeItem: (item, index) ->
+    <li key={item.database_id}>{item}</li>
+  render: ->
+    <ul>
+      {@props.items.filter(@showEvenItems).map(@makeItem)}
+    </ul>
 
-    # Bad example
-    # This works, and is actually faster, but using functional expressions helps
-    # to abstract the idea of iteration. Most paradigms in JS applications can be expressed
-    # and manipulated with `map` or `filter`, so these functions help to ensure a common
-    # "language" for dealing with sets of information
-    makeItems: ->
-      for item in @props.items
-        if item % 2 == 0
-          <li key={item.database_id}>{item}</li>
-    render: ->
-      <ul>
-        {@makeItems()}
-      </ul>
+  # Bad example
+  # This works, and is actually faster, but using functional expressions helps
+  # to abstract the idea of iteration. Most paradigms in JS applications can be expressed
+  # and manipulated with `map` or `filter`, so these functions help to ensure a common
+  # "language" for dealing with sets of information
+  makeItems: ->
+    for item in @props.items
+      if item % 2 == 0
+        <li key={item.database_id}>{item}</li>
+  render: ->
+    <ul>
+      {@makeItems()}
+    </ul>
   ```
   
 10. Don't use `class` when setting classes on an element
