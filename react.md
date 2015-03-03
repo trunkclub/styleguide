@@ -3,7 +3,7 @@
 This guide assumes that you are writing in the coffeescript-flavor of [JSX](https://github.com/jsdf/coffee-react-transform). It also assumes that you have a cursory understanding of what JSX is and why React uses it. See the [docs](http://facebook.github.io/react/docs/jsx-in-depth.html) for more details.
 
 ## Structure of React Components
-You should structure your React Components like this to ensure consistency. Whether you're using ES6 or Coffeescript or PoopyScript, it should be ordered like this
+You should structure your React Components like this to ensure consistency. Whether you're using ECMAScript 6 syntax, plain Javascript, or Coffeescript, it should be ordered like this
 
 1. Attributes
   1. If you are using a mixin that requires you to specify an attribute on the Component's prototype (and not on the instance itself), do that here as well
@@ -32,16 +32,14 @@ You should structure your React Components like this to ensure consistency. Whet
 3. Event handlers
 
   ```Coffeescript
-  onClickBtn: (evt) -> # on(EventType)(SourceItem)
-                       # the React docs will use `handle(EventType)`.
-                       # Same thinking, different naming
+  handleClickBtn: (evt) -> # handle(EventType)(SourceItem)
   ```
 
 4. Helper methods for making chunks of UI
 
   ```CoffeeScript
   makeListOfItems: ->
-    @state.items.map (item, index) -> <li key-{index}>{item}</li>
+    @state.items.map (item, index) -> <li key={index}>{item}</li>
   ```
 
 5. `render()`
@@ -81,7 +79,7 @@ You should structure your React Components like this to ensure consistency. Whet
     </section>
   ```
 
-2. If you have more than 3 props on a React component, move each prop declaration to a new line
+2. If your component looks untidy OR has >5 props defined on it, move each prop to a new line
 
   ```CoffeeScript
   # Good
@@ -90,7 +88,7 @@ You should structure your React Components like this to ensure consistency. Whet
       <ComponentName a={@state.a} b={@state.b} />
     </span>
 
-  # Bad
+  # Good-ish. It's getting messy. Consider breaking them into different lines
   render: ->
     <span>
       <ComponentName a={@state.a} b={@state.b} c={@state.c} d={@state.d} />
@@ -104,6 +102,8 @@ You should structure your React Components like this to ensure consistency. Whet
         b={@state.b}
         c={@state.c}
         d={@state.d}
+        e={@state.e}
+        f={@state.f}
       />
     </span>
 
@@ -112,7 +112,7 @@ You should structure your React Components like this to ensure consistency. Whet
   render: ->
     <span>
       <ComponentName
-        something={@props.something}
+        someLongVariableNameThatNeedsToBeThisLong={@props.someLongVariableNameThatNeedsToBeThisLong}
         otherStuff={@props.otherStuff}
         thing={@state.thing}>
         <span>Inner content!</span>
@@ -168,6 +168,9 @@ You should structure your React Components like this to ensure consistency. Whet
       MixinOne
       MixinTwo
     ]
+
+  OtherComponent = React.createClass
+    mixins: [OnlyMixin] # this is fine, since there is only one mixin here
   ```
 
 8. Remember to `key` like elements that appear in arrays
