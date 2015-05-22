@@ -2,7 +2,7 @@
 
 While working on style rules.
 
-- use [SUIT code style](https://github.com/suitcss/suit/blob/master/doc/code-style.md#4-css) and refactor from `application.scss` into [Static](https://github.com/trunkclub/static) when it makes sense (i.e. almost always)
+- follow the [SUIT Naming Conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md) for consistent naming
 - use `rem` for defining relative sizes, otherwise use `px`
 - style declarations should end with a semicolon, e.g. `opacity: 0;`
 - style declarations should use curly braces and not be on one line, ~!e.g. `.mustachy { @extend .cf }`
