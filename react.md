@@ -38,7 +38,7 @@ You should structure your React Components like this to ensure consistency. Whet
 4. Helper methods for making chunks of UI
 
   ```CoffeeScript
-  makeListOfItems: ->
+  renderListOfItems: ->
     @state.items.map (item, index) -> <li key={index}>{item}</li>
   ```
 
@@ -46,7 +46,7 @@ You should structure your React Components like this to ensure consistency. Whet
 
   ```CoffeeScript
   render: ->
-    <span>{@makeListOfItems()}</span>
+    <span>{@renderListOfItems()}</span>
   ```
 
 ## Code style
@@ -185,7 +185,7 @@ You should structure your React Components like this to ensure consistency. Whet
       <p key={3}>Some more text</p>
     </div>
 
-  makeItem: (item, index) ->
+  renderItem: (item, index) ->
     <p key={index}>{item}</p> # `map`-ing over the elements
                               # lets you use the index of the item
                               # in the array as a key.
@@ -198,7 +198,7 @@ You should structure your React Components like this to ensure consistency. Whet
                               # using the index of the element in the source array works
   render: ->
     <div>
-      {@state.items.map(@makeItem)}
+      {@state.items.map(@renderItem)}
     </div>
   ```
 
@@ -214,11 +214,11 @@ You should structure your React Components like this to ensure consistency. Whet
   # Good example
   showEvenItems: (item, index) ->
     item % 2 == 0
-  makeItem: (item, index) ->
+  renderItem: (item, index) ->
     <li key={item.database_id}>{item}</li>
   render: ->
     <ul>
-      {@props.items.filter(@showEvenItems).map(@makeItem)}
+      {@props.items.filter(@showEvenItems).map(@renderItem)}
     </ul>
 
   # Bad example
@@ -226,13 +226,13 @@ You should structure your React Components like this to ensure consistency. Whet
   # to abstract the idea of iteration. Most paradigms in JS applications can be expressed
   # and manipulated with `map` or `filter`, so these functions help to ensure a common
   # "language" for dealing with sets of information
-  makeItems: ->
+  renderItems: ->
     for item in @props.items
       if item % 2 == 0
         <li key={item.database_id}>{item}</li>
   render: ->
     <ul>
-      {@makeItems()}
+      {@renderItems()}
     </ul>
   ```
   
