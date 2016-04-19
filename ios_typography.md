@@ -8,5 +8,4 @@
  boldSelectedTextStyle | Bold | 14.0    | Secondary     | Yes
  boldDisabledTextStyle | Bold | 14.0    | Secondary     | Yes
  boldTitleTextStyle | Bold    | 16.0    | Primary       | Yes
- boldParagraphTextStyle |     | 16.0    | Primary       | No
- 
+ boldParagraphTextStyle | Bold | 16.0    | Primary       | No
