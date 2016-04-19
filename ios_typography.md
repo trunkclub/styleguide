@@ -119,16 +119,58 @@ Element     | Style
 textField   | boldTextStyle, .Center
 separatorView | --
 
-#### WardrobeItemCell - Stylist App
+#### ConversationCell - Stylist App
 
  Element     | Style     
 :------------|:----------------
- itemImage   | --
- feedbackImage | --
- itemNameLabel | mono, 11.0, primary, false
- itemBrandLabel  | TCBoldLabel
- itemDetailsLabel | mono, 11.0, secondary, false
+ memberAvatar   | --
+ memberNameLabel | TCBoldParagraphLabel
+ messageLabel | TCLightLabel
+ timeLabel  | TCLightSubtitleLabel
+ newMessageIndicator | --
 
+#### MemberDetailNotesCell - Stylist App
 
+  Element     | Style     
+ :------------|:----------------
+  headerLabel   | TCLabel
+  noteLabel | TCLightLabel
+  dateLabel | TCLightSubtitleLabel
 
-### Collection View Cells
+#### WardrobeItemCell - Stylist App
+
+   Element     | Style     
+  :------------|:----------------
+   itemImage   | --
+   feedbackImage | --
+   itemNameLabel | mono, 11.0, primary, false
+   itemBrandLabel  | bold, 12.0, primary, false
+   itemDetailsLabel | mono, 11.0, secondary, false
+
+#### PreferenceTableViewCell - Member App
+
+  Element     | Style     
+ :------------|:----------------
+  preferenceImageView   | --
+  preferenceTitleLabel | regular, 24.0, primary, false
+  preferenceSubtitleLabel | regular, 11.0, primary, true
+
+### TCCollectionViewCell Subclasses
+
+#### MenuItemCollectionCell - Stylist App
+
+   Element     | Style     
+  :------------|:----------------
+   imageView   | --
+   titleLabel | TCLightParagraphLabel
+
+#### ItemBasicsCell - Stylist App
+
+    Element     | Style     
+   :------------|:----------------
+    itemImageView   | --
+    titleLabel  | TCBoldLabel
+    subtitleLabel | TCLabel
+    descriptionLabel | mono, 14.0, primary, false
+    pillLabel   | bold, 10.0, secondary, true
+    pillView    | --
