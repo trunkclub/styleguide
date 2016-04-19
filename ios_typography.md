@@ -90,15 +90,45 @@
   infoLabel | regularDisabledTextStyle
   arrowImageView | --
 
-### Table View Cells
+### TCTableViewCell
 
  Element     | Style     
 :------------|:----------------
  textField   | regularTextStyle, lightPlaceholderStyle
  subtitleLabel | regularSelectedTextStyle
  detailLabel | TCLabel
- errorLabel  | regularFontWithSize:12.0, errorColor, no
+ errorLabel  | regular, 12.0, errorColor, no
  secondaryLabel | TCLightLabel
  accessoryImageView | --
  leftImageView | --
  rightButton | --
+
+### TCTableViewCell Subclasses
+
+#### MemberProfileTableViewCell - Stylist App
+
+Element     | Style     
+:------------|:----------------
+textField   | boldTextStyle, .Center
+separatorView | --
+
+#### MeViewController - Member App
+
+Element     | Style     
+:------------|:----------------
+textField   | boldTextStyle, .Center
+separatorView | --
+
+#### WardrobeItemCell - Stylist App
+
+ Element     | Style     
+:------------|:----------------
+ itemImage   | --
+ feedbackImage | --
+ itemNameLabel | mono, 11.0, primary, false
+ itemBrandLabel  | TCBoldLabel
+ itemDetailsLabel | mono, 11.0, secondary, false
+
+
+
+### Collection View Cells
