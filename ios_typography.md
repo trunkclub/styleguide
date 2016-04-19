@@ -149,46 +149,136 @@ separatorView | --
 
 #### PreferenceTableViewCell - Member App
 
-  Element     | Style     
- :------------|:----------------
-  preferenceImageView   | --
-  preferenceTitleLabel | regular, 24.0, primary, false
-  preferenceSubtitleLabel | regular, 11.0, primary, true
+ Element     | Style     
+:------------|:----------------
+preferenceImageView   | --
+preferenceTitleLabel | regular, 24.0, primary, false
+preferenceSubtitleLabel | regular, 11.0, primary, true
 
 ### TCCollectionViewCell Subclasses
 
 #### MenuItemCollectionCell - Stylist App
 
-   Element     | Style     
-  :------------|:----------------
-   imageView   | --
-   titleLabel | TCLightParagraphLabel
+ Element     | Style     
+:------------|:----------------
+ imageView   | --
+ titleLabel | TCLightParagraphLabel
 
 #### ItemBasicsCell - Stylist App
 
+  Element     | Style     
+ :------------|:----------------
+  itemImageView   | --
+  titleLabel  | TCBoldLabel
+  subtitleLabel | TCLabel
+  descriptionLabel | mono, 14.0, primary, false
+  pillLabel   | bold, 10.0, secondary, true
+  pillView    | --
+
+#### ItemBasicsCell - Member App
+
+  Element     | Style     
+ :------------|:----------------
+  itemImageView   | --
+  titleLabel  | primaryBoldTextStyle
+  subtitleLabel | regularTextStyle
+  descriptionLabel | secondaryTextStyle
+  wardrobeLabel   | bold, 10.0, white, true
+
+#### ItemFeedbackCell - Stylist App
+
+   Element     | Style     
+  :------------|:----------------
+   memberAvatarImageView   | --
+   headerLabel  | TCBoldLabel
+   feedbackQuote | serifTextStyle
+   pillLabel   | bold, 10.0, secondary, true
+   pillView    | --
+
+#### ItemHeaderCollectionCell - Member App
+
+  Element     | Style     
+ :------------|:----------------
+  vendorLabel   | primaryBoldTextStyle
+  descriptionLabel  | secondarySerifParagraphTextStyle
+  pillView    | --
+
+#### ItemOutfitCollectionCell - Member App
+
+  Element     | Style     
+ :------------|:----------------
+  countLabel   | regular, 13.0, primary, false
+  descriptionLabel  | bold, 16.0, secondary, false
+
+#### ItemOutfitsCollectionCell - Member App
+
+  Element     | Style     
+ :------------|:----------------
+  headerLabel   | bold, 14.0, primary, true
+
+#### SearchCell - Stylist App
+
     Element     | Style     
    :------------|:----------------
-    itemImageView   | --
-    titleLabel  | TCBoldLabel
-    subtitleLabel | TCLabel
-    descriptionLabel | mono, 14.0, primary, false
-    pillLabel   | bold, 10.0, secondary, true
-    pillView    | --
+    imageView   | --
+    brandLabel  | TCLabel
+    priceLabel | TCLabel
 
-#### ItemFeedbackCell - Stylist App
+#### ContentInfoCell - Member App
 
-     Element     | Style     
-    :------------|:----------------
-     memberAvatarImageView   | --
-     headerLabel  | TCBoldLabel
-     feedbackQuote | serifTextStyle
-     pillLabel   | bold, 10.0, secondary, true
-     pillView    | --
+   Element     | Style     
+  :------------|:----------------
+    titleLabel | serif, 24.0, primary, false
+    descriptionLabel | TCLabel
 
-#### ItemFeedbackCell - Stylist App
+#### ContentInfoCell - Member App
 
-      Element     | Style     
-     :------------|:----------------
-      imageView   | --
-      brandLabel  | TCLabel
-      priceLabel | TCLabel
+   Element     | Style     
+  :------------|:----------------
+    titleLabel | serif, 24.0, primary, false
+    descriptionLabel | regularTextStyle
+
+#### ContentInfoCell - Member App
+
+   Element     | Style     
+  :------------|:----------------
+    textLabel  | secondaryTextStyle
+
+#### MessageActionCell - Member App
+
+   Element     | Style     
+  :------------|:----------------
+   titleLabel  | serifParagraphTextStyle
+   stylistImageView  | --
+   messageButton  | TCButton
+   separatorView  | --
+
+#### RecommendItemCell - Member App
+
+  Element     | Style     
+ :------------|:----------------
+   imageView  | --
+   brandLabel  | bold, 14.0, primary, false
+   priceLabel  | secondaryTextStyle
+   itemDetailsView  | --
+   reservedView  | --
+   reservedLabel  | regular, 12.0, secondary, true
+
+#### RecommendedItemsGroupCell - Member App
+
+   Element     | Style     
+  :------------|:----------------
+   titleLabel  | secondaryTextStyle
+
+#### TCTrunkCell - Member App
+
+  Element     | Style     
+  :------------|:----------------
+   imageView  | --
+   brandLabel  | bold, 14.0, primary, false
+   productNameLabel | regular, 14.0, primary, false
+   priceLabel  | secondaryTextStyle
+   removeTrunkLabel | bold, 13.0, error, false
+   actionButton  | TCActionButton
+   outfitsLabel  | secondaryTextStyle
+   accessoryView  | --
