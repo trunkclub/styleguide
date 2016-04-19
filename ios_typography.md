@@ -174,3 +174,21 @@ separatorView | --
     descriptionLabel | mono, 14.0, primary, false
     pillLabel   | bold, 10.0, secondary, true
     pillView    | --
+
+#### ItemFeedbackCell - Stylist App
+
+     Element     | Style     
+    :------------|:----------------
+     memberAvatarImageView   | --
+     headerLabel  | TCBoldLabel
+     feedbackQuote | serifTextStyle
+     pillLabel   | bold, 10.0, secondary, true
+     pillView    | --
+
+#### ItemFeedbackCell - Stylist App
+
+      Element     | Style     
+     :------------|:----------------
+      imageView   | --
+      brandLabel  | TCLabel
+      priceLabel | TCLabel
