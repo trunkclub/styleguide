@@ -57,15 +57,48 @@
 
 ### Table View Headers
 
+#### MemberProfileHeaderView - Stylist App
+
+ Element     | Style     
+:------------|:----------------
+  avatar     | --
+  nameLabel | serifHeaderTextStyle
+  emailLabel | TCLightSubtitleLabel
+  locationLabel  | TCLightSubtitleLabel
+  arrowImageView | --
+  transactionLabel | TCLightParagraphLabel
+  spendLabel | TCLightParagraphLabel
+  creditsLabel | TCLightParagraphLabel
+  transactionTitleLabel | TCTableViewHeaderLabel
+  spendTitleLabel | TCTableViewHeaderLabel
+  creditsTitleLabel | TCTableViewHeaderLabel
+
+#### StylistHeaderView - Stylist App
+
+ Element     | Style     
+:------------|:----------------
+ avatar     | --
+ nameLabel | serifParagraphTextStyle
+ emailLabel | TCLightSubtitleLabel
+
+#### MeHeaderView - Member App
+
+  Element     | Style     
+ :------------|:----------------
+  avatar     | --
+  nameLabel | serif, 22.0, blackColor, false
+  infoLabel | regularDisabledTextStyle
+  arrowImageView | --
+
 ### Table View Cells
 
  Element     | Style     
-:------------|:----------------:
+:------------|:----------------
  textField   | regularTextStyle, lightPlaceholderStyle
  subtitleLabel | regularSelectedTextStyle
  detailLabel | TCLabel
  errorLabel  | regularFontWithSize:12.0, errorColor, no
  secondaryLabel | TCLightLabel
- accessoryImageView |
- leftImageView |
- rightButton |
+ accessoryImageView | --
+ leftImageView | --
+ rightButton | --
